@@ -1,4 +1,4 @@
-1\. Two Types of Connection (ansible Master \& Slave)
+1. Two Types of Connection (ansible Master \& Slave)
 
 
 
@@ -20,7 +20,7 @@ ssh key password-2
 
 Master
 
-\# ssh -i ~/key.pem ubuntu@<slave-ip>
+# ssh -i ~/key.pem ubuntu@<slave-ip>
 
 ssh -i <path-to-key.pem> ubuntu@<slave-ip>
 
@@ -32,13 +32,13 @@ Slave
 
 sudo vim /etc/ssh/sshd\_config.d/60-cloudimg-settings.conf
 
-\# → PasswordAuthentication yes
+# → PasswordAuthentication yes
 
 
 
 sudo vim /etc/ssh/sshd\_config
 
-\# → PasswordAuthentication yes
+# → PasswordAuthentication yes
 
 
 
@@ -60,11 +60,11 @@ ansible all -m ping    # pong expected
 
 
 
-====================================================================================================================================================================================================
+==========================================================================================
 
 
 
-2\. Adhoc commands | Inventory (File path)-> /etc/ansible/hosts
+2. Adhoc commands | Inventory (File path)-> /etc/ansible/hosts
 
 
 
@@ -76,9 +76,9 @@ vim inventory.ini
 
 ------------------------------------------
 
-\[slave]
+[slave]
 
-3.23.130.165 ansible\_user=ubuntu
+3.23.130.165 ansible_user=ubuntu
 
 ------------------------------------------
 
@@ -92,11 +92,11 @@ ansible -i inventory.ini -m ping all
 
 
 
-====================================================================================================================================================================================================
+=====================================================================================
 
 
 
-3\. Ansible PlayBook
+3. Ansible PlayBook
 
 
 
@@ -106,7 +106,7 @@ Create Playbook — site.yml
 
 ---
 
-\- hosts: all
+- hosts: all
 
 &nbsp; become: true
 
@@ -152,11 +152,11 @@ ansible-playbook -i inventory.ini site.yml
 
 
 
-====================================================================================================================================================================================================
+=======================================================================================
 
 
 
-4\. Ansible Role
+4. Ansible Role
 
 
 
@@ -166,7 +166,7 @@ ansible-galaxy role init apache\_role
 
 This will generate a fully structured folder like this:
 
-apache\_role/
+apache_role/
 
 ├── defaults/
 
@@ -290,7 +290,7 @@ ansible-playbook -i inventory.ini site.yml
 
 
 
-====================================================================================================================================================================================================
+======================================================================================
 
 
 
